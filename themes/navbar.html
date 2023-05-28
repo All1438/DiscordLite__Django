@@ -1,0 +1,18 @@
+<a href="{% url 'home' %}">Logo</a>
+<hr>
+
+<form method="GET" action="{% url 'home' %}">
+    {% comment %} l'action se trouve dans l'url 'home' {% endcomment %}
+    <input type="text" name="q" placeholder="Search..."/>
+</form>
+
+{% if request.user.is_authenticated %} 
+<!-- {% comment %} si la request.nom_variable.est vérifier alors (si connecté){% endcomment %} -->
+<p>Hello {{request.user}}</p> 
+<!-- {% comment %} {{request.user}} = permet d'afficher le username qui est connecté {% endcomment %} -->
+<a href='{% url 'logout' %}'>Logout</a>
+{% else %}
+<a href="{% url 'login' %}">Login</a>
+{% endif %}
+
+<hr>

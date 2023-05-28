@@ -1,0 +1,24 @@
+<h5>{{rooms_count}} rooms available</h5>
+<a href="{% url 'create-room' %}"> Create Room </a>
+<!-- {% comment %} pour faire une boucle for {% endcomment %} -->
+{% for room in rooms %} 
+    <div>
+        {% if request.user == room.host %} 
+        <!-- {% comment %} # si l'user connecté est différent de l'user dans .objects.get() alors {% endcomment %} -->
+            <a href="{% url 'update-room' room.id %}">Edit</a>
+            <a href="{% url 'delete-room' room.id %}">Delete</a> 
+        {% endif %}
+        {% if room.host %}
+        <a href="{% url 'user-profile' room.host.id %}">@{{room.host.username}}</a>
+        {% else %}
+        <span>@{{room.host.username}}</span>
+        {% endif %}
+            <!-- {% comment %}.username = permet d'afficher l'username dans user définie par host {% endcomment %} -->
+        <h5>{{room.id}} -- <a href="/room/{{room.id}}">{{room.name}}</a><h5>
+            <!-- {% comment %} {{variable}} = pour afficher les variable en HTML {% endcomment %} -->
+            <!-- {% comment %} On peut remplacer par href="{% url 'name(url)' room.id %}" {% endcomment %} -->
+        <small>{{room.topic.name}}</small>
+        <h6>{{room.participants.all.cout}}</h6>
+        <!-- .all = car c'est un ManyToManyField -->
+    </div> 
+{% endfor %}

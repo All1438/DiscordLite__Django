@@ -1,0 +1,13 @@
+<h3>Browse Topic</h3>
+<hr>
+<div>
+    <a href="{% url 'home' %}">All <span>{{topics.count}}</span></a>
+</div>
+{% for topic in topics %}
+<div>
+    <a href="{% url 'home' %}?q={{topic.name}}">{{topic.name}}<span>{{topic.room_set.all.count}}</span></a>
+    <!-- '?q='(query string) = est utilisé pour transmettre des informations supplémentaire a la vue -->
+    <!-- {{topic.room_set.all.count}} = permet de compter les Room connecter a topic (qui on le même topic) -->
+</div>
+{% endfor %}
+<hr>
