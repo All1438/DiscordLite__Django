@@ -128,6 +128,8 @@ USE_TZ = True
 STATIC_URL = 'static/'
 MEDIA_URL = 'images/' # stocké dans MEDIA_ROOT et accessible via l'URL de base de MEDIA_URL
 
+# STATIC_ROOT = spécifier le repertoite ou les fichiers static collecté seront stocké lors de l'execution de la commande "collectstatic" 
+# facilite la déployement de la production lors dans l'environnement de production
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # STATICFILES_DIES = premet de spécifier les répertoires des fichiers statiques peuvent êtres spécifié en dehors de l'application

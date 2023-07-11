@@ -1,1 +1,1 @@
-web: guvicorn Bases_Django.wsgi --log-file -
+web: gunicorn Bases_Django.wsgi --log-file -
