@@ -125,8 +125,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
-MEDIA_URL = 'images/' # stocké dans MEDIA_ROOT et accessible via l'URL de base de MEDIA_URL
+STATIC_URL = '/static/'
+MEDIA_URL = '/images/' # stocké dans MEDIA_ROOT et accessible via l'URL de base de MEDIA_URL
 
 # STATIC_ROOT = spécifier le repertoite ou les fichiers static collecté seront stocké lors de l'execution de la commande "collectstatic" 
 # facilite la déployement de la production lors dans l'environnement de production
@@ -138,7 +138,7 @@ STATICFILES_DIRS = [
 ]
 
 # MEDIA_ROOT = définit le répertoire racine où les fichié(media) télécharger par les utilisateurs seront stockés
-MEDIA_ROOT = BASE_DIR / 'static/images'
+MEDIA_ROOT = BASE_DIR / '/static/images/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
