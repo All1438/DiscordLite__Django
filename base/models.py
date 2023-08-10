@@ -7,7 +7,7 @@ from django.contrib.auth.models import AbstractUser
 # Create your models here.
 
 class User(AbstractUser): # AbstractUser = permet de personaliser le modèle d'utilisateur de base fourni par django
-    name = models.CharField(max_length=200, null=True)
+    name = models.CharField(max_length=200, null=True,)
     email = models.EmailField(unique=True, null=True)
     # .EmailField() = champ de texte permet de stocker les Email
     # unique=True = indique que chaque adresse email stocké doit être unique
